@@ -26,7 +26,7 @@ const MONGODBURI = process.env.MONGODBURI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODBURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(MONGODBURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -57,7 +57,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 /////////////////////
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.render('index.ejs');
 });
 
 

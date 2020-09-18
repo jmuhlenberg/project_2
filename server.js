@@ -40,7 +40,6 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //Middleware
 /////////////////////
 
-//use public folder for static assets
 app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
@@ -57,7 +56,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 /////////////////////
 app.get('/' , (req, res) => {
-  res.render('index.ejs');
+  res.render('user/index.ejs');
 });
 
 

@@ -2,11 +2,24 @@
 <html lang="en" dir="ltr">
   <head>
     <%- include ('../partials/head.ejs') %>
+    <title>JohnsList - Index Page</title>
   </head>
   <header>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>Test</h1>
+    <h1>Index Page</h1>
+    <div class='container'>
+      <div class="log-in">
+        <form action="/" method="post">
+          <input type="text" name="username" placeholder="username"><br/>
+          <input type="text" name="password" placeholder="password"><br/>
+          <input type="submit" value="Log In">
+        </form>
+        <form action="/">
+          <input type="submit" value="Sign Up">
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -2,6 +2,7 @@
 //Dependencies
 /////////////////////
 const express = require('express')
+const session = require('express-session')
 const methodOverride  = require('method-override')
 const mongoose = require('mongoose')
 const app = express()
@@ -17,7 +18,6 @@ const PORT = process.env.PORT
 
 
 
-
 /////////////////////
 //Database
 /////////////////////
@@ -26,29 +26,24 @@ const MONGODBURI = process.env.MONGODBURI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODBURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+mongoose.connect(MONGODBURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true})
 
 // Error / success
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODBURI));
-db.on('disconnected', () => console.log('mongo disconnected'));
-
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
+db.on('connected', () => console.log('mongo connected: ', MONGODBURI))
+db.on('disconnected', () => console.log('mongo disconnected'))
 
 
 
 /////////////////////
 //Middleware
 /////////////////////
-
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
-
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
-
+//method override
+app.use(methodOverride('_method'))
 
 
 
@@ -57,8 +52,25 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 /////////////////////
 app.get('/' , (req, res) => {
   res.render('user/index.ejs');
-});
+})
 
+app.get('/home', (req, res) => {
+  res.render('user/home.ejs')
+})
+
+
+
+/////////////////////
+// CONTROLLERS
+/////////////////////
+const itemsController = require('./controllers/items_controller.js')
+app.use('/items', itemsController)
+
+const usersController = require('./controllers/users_controller.js')
+app.use('/users', usersController)
+
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
 
 
 

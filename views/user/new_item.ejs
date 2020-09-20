@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title>JohnsList - New Item Page</title>
+  </head>
+  <header>
+    <%- include ('../partials/header.ejs') %>
+  </header>
+  <body>
+    <h1>Create New Item Page</h1>
+    <div class='container'>
+      <div class="log-in">
+        <form action="/home" method="post">
+          <label for="name">Name: </label>
+          <input type="text" name="name" placeholder="name"><br/>
+          <label for="price">Price: </label>
+          <input type="number" name="price" placeholder="0"><br/>
+          <label for="image">Image URL: </label>
+          <input type="text" name="image" placeholder="image">
+          <label for="description">Description: </label>
+          <input type="text" name="description" placeholder="Add a description.."><br/>
+          <label for="available">Currently Available:</label>
+          <input type="checkbox" name="available" value="isAvailable">
+          <input type="submit" value="Log In">
+        </form>
+        <form action="/">
+          <input type="submit" value="Sign Up">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

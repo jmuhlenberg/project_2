@@ -9,8 +9,18 @@
   </header>
   <body>
     <h1>Home Page</h1>
+    <div class="create">
+      <a href="#">Post a New Item</a>
+    </div>
     <div class='container'>
+      <% for (let item of items){ %>
+        <div class="item">
+          <h3><%=item.name%><span>$<%=item.price%></span></h3>
+          <img src="<%=item.image%>" alt="<%=item.name%>">
+          <p><%=item.description%></p>
+        </div>
 
+      }
     </div>
   </body>
 </html>

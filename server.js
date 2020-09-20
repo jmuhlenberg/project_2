@@ -7,6 +7,7 @@ const methodOverride  = require('method-override')
 const mongoose = require('mongoose')
 const app = express()
 const db = mongoose.connection
+const Item = require('./models/items.js')
 require('dotenv').config()
 
 
@@ -55,7 +56,9 @@ app.get('/' , (req, res) => {
 })
 
 app.get('/home', (req, res) => {
-  res.render('user/home.ejs')
+  Item.find({}, (err, allItems) => {
+      res.render('user/home.ejs', {items: allItems})
+  })
 })
 
 

@@ -1,5 +1,5 @@
 /////////////////////
-//Dependencies
+// DEPENDENCIES
 /////////////////////
 const express = require('express')
 const session = require('express-session')
@@ -13,14 +13,14 @@ require('dotenv').config()
 
 
 /////////////////////
-//Port
+// PORT
 /////////////////////
 const PORT = process.env.PORT
 
 
 
 /////////////////////
-//Database
+// DATABASE
 /////////////////////
 const MONGODBURI = process.env.MONGODBURI;
 
@@ -37,7 +37,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 
 /////////////////////
-//Middleware
+// MIDDLEWARE
 /////////////////////
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }))
@@ -49,7 +49,7 @@ app.use(methodOverride('_method'))
 
 
 /////////////////////
-// Routes
+// ROUTES
 /////////////////////
 app.get('/' , (req, res) => {
   res.render('user/index.ejs');
@@ -62,6 +62,47 @@ app.get('/home', (req, res) => {
 })
 
 
+
+/////////////////////
+// SEED
+/////////////////////
+// Item.create([
+//   {
+//     name: 'containers',
+//     price: 10,
+//     description: 'random containers',
+//     image: 'https://www.criticalcase.com/file/2017/12/container-vantaggi-470x336.png',
+//     isAvailable: true
+//   },
+//   {
+//     name: 'tools',
+//     price: 15,
+//     description: 'random assortment of tools',
+//     image: 'https://facom.com.pl/29255-tm_large_default/cme16-set-of-76-piece-electronic-tools.jpg',
+//     isAvailable: true
+//   },
+//   {
+//     name: 'baby toy',
+//     price: 5,
+//     description: 'push mower baby toy',
+//     image: 'https://target.scene7.com/is/image/Target/GUEST_157c95b8-933b-40f0-a92d-29bb841694ec?wid=325&hei=325&qlt=80&fmt=webp',
+//     isAvailable: false
+//   },
+//   {
+//     name: 'bicycle',
+//     price: 25,
+//     description: 'child size bike with balance wheels',
+//     image: '',
+//     isAvailable: true
+//   },
+//   {
+//     name: 'rocker chair',
+//     price: 500,
+//     description: 'https://cdn.shopify.com/s/files/1/2150/6963/files/jackson-rocker-grey-grey-chr-wal-1.jpg',
+//     image: '',
+//     isAvailable: false
+//   }
+// ])
 
 /////////////////////
 // CONTROLLERS
@@ -78,6 +119,6 @@ app.use('/sessions', sessionsController)
 
 
 /////////////////////
-//Listener
+// LISTENER
 /////////////////////
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));

@@ -5,7 +5,7 @@ const User = require('../models/users.js')
 
 //on 'Log In' click
 sessions.get('/new', (req, res) => {
-  res.render('sessions/new.ejs', {currentUser: req.session.currentUser})
+  res.render('sessions/sign_up.ejs', {currentUser: req.session.currentUser})
 })
 
 //on sessions/new form submit (log in)
@@ -19,7 +19,8 @@ sessions.post('/', (req, res) => {
     }else{
       if(bcrypt.compareSync(req.body.password, foundUser.password)){
         req.session.currentUser = foundUser
-        res.redirect('/')
+        // console.log('log in successful');
+        res.redirect('/home')
       }else{
         res.send('<a href="/">password does not match</a>')
       }

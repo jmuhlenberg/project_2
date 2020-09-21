@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title>JohnsList - Log In Page</title>
+  </head>
+  <header>
+    <%- include ('../partials/header.ejs') %>
+  </header>
+  <body>
+    <h1>Log In Page</h1>
+    <div class='container'>
+      <div class="log-in">
+        <form action="/sessions" method="post">
+          <input type="text" name="username" placeholder="username"><br/>
+          <input type="password" name="password" placeholder="password"><br/>
+          <input type="submit" value="Log In">
+        </form>
+        <form action="/sessions/new">
+          <input type="submit" value="Sign Up">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -19,7 +19,7 @@ app.get('/', (req, res)=>{
 
 //create new item
 app.get('/new', (req, res) => {
-  res.render('user/new_item.ejs')
+  res.render('user/new_item.ejs', {currentUser: req.session.currentUser})
 })
 
 
@@ -44,7 +44,7 @@ app.post('/', (req, res) => {
 //show route for specific item
 app.get('/:id', (req, res)=>{
   Item.findById(req.params.id, (err, foundItem)=>{
-      res.render('user/edit.ejs', {item: foundItem, currentUser: req.body.currentUser})
+      res.render('user/edit.ejs', {item: foundItem, currentUser: req.session.currentUser})
   })
 })
 
@@ -60,13 +60,13 @@ app.delete('/:id', (req, res) => {
 //edit
 app.get('/:id/edit', (req, res) => {
   Item.findById(req.params.id, (err, foundItem) => {
-    res.render('user/edit.ejs', {item: foundItem, currentUser: req.body.currentUser})
+    res.render('user/edit.ejs', {item: foundItem, currentUser: req.session.currentUser})
   })
 })
 
 
 //update
-app.put('/:id', (req, res) => {
+app.put('/:id', isAuthenticated, (req, res) => {
   if(req.body.isAvailable === 'on'){
     req.body.isAvailable = true
   }else{

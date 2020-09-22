@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title>JohnsList - Log In</title>
+  </head>
+  <header>
+    <%- include ('../partials/background.ejs') %>
+    <%- include ('../partials/header_nouser.ejs') %>
+  </header>
+  <body>
+    <br/>
+    <div class='uk-container'>
+      <h1 class='uk-text-center uk-margin-small-bottom'>JohnsList</h1>
+      <h4 class='uk-text-center uk-margin-small-top'>Where secondhand snow gear gets another life.</h4>
+      <h1 class='uk-text-center uk-margin-small-bottom'>Log In</h1>
+      <div class="uk-container uk-container-xsmall">
+        <div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>Sorry, there was an error. Please try again.</p></div>
+        <form action="/sessions" method="post">
+          <input class='uk-input' type="text" name="username" placeholder="username"><br/>
+          <input class='uk-input' type="password" name="password" placeholder="password"><br/>
+          <input class='uk-align-center uk-button uk-button-primary' type="submit" value="Log In">
+        </form>
+        <form action="/sessions/new">
+          <input class='uk-align-center uk-button uk-button-default' type="submit" value="Sign Up">
+        </form>
+      </div>
+    </div>
+    <%- include ('../partials/footer.ejs') %>
+  </body>
+</html>

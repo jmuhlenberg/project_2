@@ -13,16 +13,16 @@ sessions.post('/', (req, res) => {
   User.findOne({username: req.body.username}, (err, foundUser) => {
     if(err){
       console.log(err);
-      res.send('oops the db had a problem')
+      res.render('user/log_in_fail.ejs')
     }else if (!foundUser){
-      res.send('<a href="/">Sorry, no user found </a>')
+      res.render('user/log_in_incorrect.ejs')
     }else{
       if(bcrypt.compareSync(req.body.password, foundUser.password)){
         req.session.currentUser = foundUser
         // console.log('log in successful');
         res.redirect('/home')
       }else{
-        res.send('<a href="/">password does not match</a>')
+        res.render('user/log_in_incorrect.ejs')
       }
     }
   })

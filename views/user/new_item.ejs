@@ -15,9 +15,9 @@
       <h1 class='uk-margin-small-top'>Create New Item Page</h1>
       <div class="uk-card">
         <form action="/items" method="post">
-          <label for="name">Name: </label>
+          <label for="name">Name: </label><span class='uk-text-small uk-text-danger'>*required</span>
           <input class='uk-input' type="text" name="name" placeholder="name"><br/>
-          <label for="price">Price: </label>
+          <label for="price">Price: </label><span class='uk-text-small uk-text-danger'>*required</span>
           <input class='uk-input' type="number" name="price" placeholder="0"><br/>
           <label for="image">Image URL: </label>
           <input class='uk-input' type="text" name="image" placeholder="image"><br/>

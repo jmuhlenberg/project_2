@@ -15,10 +15,14 @@
     <div class='uk-container'>
       <div class="uk-card">
         <form action="/items/<%=item.id%>?_method=PUT" method="POST">
-          Name: <input class='uk-input' type="text" name="name" value="<%=item.name%>"><br/>
-          Price: <input class='uk-input' type="number" name="price" value="<%=item.price%>"><br/>
-          Image URL: <input class='uk-input' type="text" name="image" value="<%=item.image%>"><br/>
-          Description: <textarea class='uk-textarea uk-height-small' type="text" name="description"><%=item.description%></textarea><br/>
+          <label for="name">Name: </label><span class='uk-text-small uk-text-danger'>*required</span>
+          <input class='uk-input' type="text" name="name" value="<%=item.name%>"><br/>
+          <label for="price">Price: </label><span class='uk-text-small uk-text-danger'>*required</span>
+          <input class='uk-input' type="number" name="price" value="<%=item.price%>"><br/>
+          <label for="image">Image URL: </label>
+          <input class='uk-input' type="text" name="image" value="<%=item.image%>"><br/>
+          <label for="description">Description: </label>
+          <textarea class='uk-textarea uk-height-small' type="text" name="description"><%=item.description%></textarea><br/>
           <input class='uk-align-center uk-button uk-button-default' type="submit" value="UPDATE">
         </form>
         <form action='/items/<%=item.id%>?_method=DELETE' method='POST'>

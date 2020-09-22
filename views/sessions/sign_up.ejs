@@ -5,13 +5,14 @@
     <title>JohnsList - Sign Up Page</title>
   </head>
   <header>
-    <%- include ('../partials/background.ejs') %>
+    <%- include ('../partials/background2.ejs') %>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
     <br/>
     <div class='uk-container'>
-      <h1 class='uk-text-center'>Welcome to JohnsList!</h1>
+      <h1 class='uk-text-center uk-margin-small-bottom'>Welcome to JohnsList!</h1>
+      <h5 class='uk-text-center uk-margin-small-top'>Turn your secondhand snow gear into someone's favorite pastime.</h5>
       <div class="uk-container uk-container-xsmall">
         <form action="/users" method="POST">
           <input class='uk-input' type="text" name="username" placeholder="username"><br/>

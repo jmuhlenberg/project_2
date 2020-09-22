@@ -5,27 +5,29 @@
     <title>JohnsList - New Item Page</title>
   </head>
   <header>
+    <div class="johnslist">
+      <h1>JohnsList</h1>
+    </div>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>JohnsList</h1>
-    <h1>Create New Item Page</h1>
-    <div class='container'>
-      <div class="log-in">
+    <div class='uk-container'>
+      <h1 class='uk-margin-small-top'>Create New Item Page</h1>
+      <div class="uk-card">
         <form action="/items" method="post">
           <label for="name">Name: </label>
-          <input type="text" name="name" placeholder="name"><br/>
+          <input class='uk-input' type="text" name="name" placeholder="name"><br/>
           <label for="price">Price: </label>
-          <input type="number" name="price" placeholder="0"><br/>
+          <input class='uk-input' type="number" name="price" placeholder="0"><br/>
           <label for="image">Image URL: </label>
-          <input type="text" name="image" placeholder="image"><br/>
+          <input class='uk-input' type="text" name="image" placeholder="image"><br/>
           <label for="description">Description: </label>
-          <input type="text" name="description" placeholder="Add a description.."><br/>
-          <input type="submit" value="Add Item">
+          <textarea class='uk-textarea uk-height-small' name="description" placeholder="Add a description.."></textarea><br/>
+          <input class='uk-align-center uk-button uk-button-primary' type="submit" value="Add Item">
         </form>
       </div>
     </div>
-    <footer class='uk-position-bottom'>
+    <footer>
       <%- include ('../partials/footer.ejs') %>
     </footer>
   </body>

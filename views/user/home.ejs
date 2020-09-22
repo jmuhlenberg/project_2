@@ -5,21 +5,19 @@
     <title>JohnsList - Home Page</title>
   </head>
   <header>
-    <div class="johnslist">
-      <h1>JohnsList</h1>
-    </div>
+    <%- include ('../partials/background3.ejs') %>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
     <% if(currentUser) {%>
-      <div class="uk-container">
-        <a class='uk-link-heading' href="/items/new">Post a New Item</a>
+      <div class="uk-container uk-padding-small">
+        <a class='uk-align-center uk-button uk-button-secondary' href="/items/new">Post a New Item</a>
         <hr>
       </div>
     <% } %>
-    <div class='uk-container uk-flex-wrap'>
+    <div class='uk-container uk-flex uk-flex-center uk-flex-wrap uk-flex-wrap-around uk-padding-small'>
       <% for (let item of items){ %>
-        <div class='uk-card uk-card-default uk-card-hover uk-padding uk-margin-small uk-width-1-2'>
+        <div class='uk-card uk-card-default uk-card-body uk-card-hover uk-padding uk-margin-small'>
           <a class='uk-card-title' href="/items/<%=item.id%>"><%=item.name%></a>
           <p>$<%=item.price%></p>
           <div uk-lightbox>
@@ -27,7 +25,7 @@
           </div>
           <p><%=item.description%></p>
           <% if(currentUser) {%>
-            <a class='uk-align-center uk-button uk-button-primary' href="items/<%=item.id%>/edit">Edit</a>
+            <a class='uk-align-center uk-button uk-button-primary' href="/items/<%=item.id%>/edit">Edit</a>
             <form action='/items/<%=item.id%>?_method=DELETE' method='POST'>
               <input class='uk-align-center uk-button uk-button-danger' type="submit" value="DELETE"/>
             </form>

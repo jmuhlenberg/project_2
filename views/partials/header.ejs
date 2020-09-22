@@ -8,7 +8,7 @@
       <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
             <% if(currentUser) {%>
-              <li class='uk-active'><h5>Welcome <%=currentUser.username%>!</h5></li>
+              <li class='uk-active uk-margin-small-top uk-margin-small-right'><h5>Welcome <%=currentUser.username%>!</h5></li>
               <li class='uk-active'><form action="/sessions?_method=DELETE" method="POST">
                 <input class='uk-button uk-button-danger' type="submit" value="Log Out" />
               </form></li>

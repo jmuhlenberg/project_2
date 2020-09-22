@@ -11,7 +11,7 @@
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <div class='uk-container'>
+    <div class='uk-container uk-padding-small'>
       <div class="uk-card uk-card-default uk-padding">
         <h1><%=item.name%></h1>
         <h3>$<%=item.price%></h3>
@@ -21,6 +21,7 @@
         </div>
         <hr>
         <p><%=item.description%></p>
+        <button class='uk-align-center uk-button uk-button-default uk-margin-small-bottom' type="button" name="button">Contact Seller</button>
       </div>
     </div>
     <footer>

@@ -7,6 +7,24 @@
   background-size: cover;
 }
 
+.background-image2{
+  width: 100%;
+  height: 250px;
+  background: url('../photos/BC-chair-6.JPG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-image3{
+  width: 100%;
+  height: 250px;
+  background: url('../photos/BC-chair-4.JPG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .johnslist{
   width: 100%;
   height: 100px;

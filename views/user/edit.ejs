@@ -5,10 +5,13 @@
     <title>JohnsList - Edit Page</title>
   </head>
   <header>
+    <div class="johnslist">
+      <h1>JohnsList</h1>
+    </div>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>Edit Page</h1>
+    <h1>Edit</h1>
     <div class='container'>
       <div class="item">
         <form action="/items/<%=item.id%>?_method=PUT" method="POST">
@@ -23,5 +26,8 @@
         </form>
       </div>
     </div>
+    <footer class='uk-position-bottom'>
+      <%- include ('../partials/footer.ejs') %>
+    </footer>
   </body>
 </html>

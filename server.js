@@ -66,7 +66,9 @@ app.get('/home', (req, res) => {
   })
 })
 
-
+app.get('/about' , (req, res) => {
+  res.render('user/about.ejs', {currentUser: req.session.currentUser});
+})
 
 /////////////////////
 // CONTROLLERS

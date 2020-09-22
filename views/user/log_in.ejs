@@ -2,24 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <%- include ('../partials/head.ejs') %>
-    <title>JohnsList - Log In Page</title>
+    <title>JohnsList - Log In</title>
   </head>
   <header>
+    <%- include ('../partials/background.ejs') %>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>Log In Page</h1>
-    <div class='container'>
-      <div class="log-in">
+    <br/>
+    <div class='uk-container'>
+      <h1 class='uk-text-center'>Log In</h1>
+      <div class="uk-container uk-container-xsmall">
         <form action="/sessions" method="post">
-          <input type="text" name="username" placeholder="username"><br/>
-          <input type="password" name="password" placeholder="password"><br/>
-          <input type="submit" value="Log In">
+          <input class='uk-input' type="text" name="username" placeholder="username"><br/>
+          <input class='uk-input' type="password" name="password" placeholder="password"><br/>
+          <input class='uk-align-center uk-button uk-button-primary' type="submit" value="Log In">
         </form>
         <form action="/sessions/new">
-          <input type="submit" value="Sign Up">
+          <input class='uk-align-center uk-button uk-button-default' type="submit" value="Sign Up">
         </form>
       </div>
     </div>
+    <%- include ('../partials/footer.ejs') %>
   </body>
 </html>

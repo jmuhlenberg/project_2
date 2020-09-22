@@ -1,13 +1,22 @@
-<h1>JohnsList</h1>
-<nav>
-  <a href="/home/">Home</a>
-  <% if(currentUser) {%>
-    <h5>Welcome <%=currentUser.username%></h5>
-    <form action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Log Out" />
-    </form>
-  <% } else { %>
-    <a href="/">Log In</a>
-    <a href="/sessions/new">Sign Up</a>
-  <% } %>
-</nav>
+<div uk-sticky='sel-target: .uk-navbar-container; cls-active: uk-navbarsticky'>
+  <nav class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+          <ul class="uk-navbar-nav">
+              <li><a href="/home/">Home</a></li>
+          </ul>
+      </div>
+      <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <% if(currentUser) {%>
+              <li class='uk-active'><h5>Welcome <%=currentUser.username%>!</h5></li>
+              <li class='uk-active'><form action="/sessions?_method=DELETE" method="POST">
+                <input class='uk-button uk-button-danger' type="submit" value="Log Out" />
+              </form></li>
+            <% } else { %>
+              <li><a href="/">Log In</a></li>
+              <li><a href="/sessions/new">Sign Up</a></li>
+            <% } %>
+          </ul>
+      </div>
+  </nav>
+</div>

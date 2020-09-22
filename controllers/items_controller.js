@@ -44,7 +44,7 @@ app.post('/', (req, res) => {
 //show route for specific item
 app.get('/:id', (req, res)=>{
   Item.findById(req.params.id, (err, foundItem)=>{
-      res.render('user/edit.ejs', {item: foundItem, currentUser: req.session.currentUser})
+      res.render('user/show.ejs', {item: foundItem, currentUser: req.session.currentUser})
   })
 })
 

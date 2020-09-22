@@ -5,18 +5,23 @@
     <title>JohnsList - Sign Up Page</title>
   </head>
   <header>
+    <%- include ('../partials/background.ejs') %>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>New User Page</h1>
-    <div class='container'>
-      <div class="log-in">
+    <br/>
+    <div class='uk-container'>
+      <h1 class='uk-text-center'>Welcome to JohnsList!</h1>
+      <div class="uk-container uk-container-xsmall">
         <form action="/users" method="POST">
-          <input type="text" name="username" placeholder="username"><br/>
-          <input type="password" name="password" placeholder="password"><br/>
-          <input type="submit" value="Sign Up">
+          <input class='uk-input' type="text" name="username" placeholder="username"><br/>
+          <input class='uk-input' type="password" name="password" placeholder="password"><br/>
+          <input class='uk-align-center uk-button uk-button-primary' type="submit" value="Sign Up">
         </form>
       </div>
     </div>
+    <footer class='uk-position-bottom'>
+      <%- include ('../partials/footer.ejs') %>
+    </footer>
   </body>
 </html>

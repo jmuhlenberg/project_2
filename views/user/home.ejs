@@ -5,30 +5,38 @@
     <title>JohnsList - Home Page</title>
   </head>
   <header>
+    <div class="johnslist">
+      <h1>JohnsList</h1>
+    </div>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>Home Page</h1>
     <% if(currentUser) {%>
-      <div class="create">
-        <a href="/items/new">Post a New Item</a>
+      <div class="uk-container">
+        <a class='uk-link-heading' href="/items/new">Post a New Item</a>
+        <hr>
       </div>
     <% } %>
-    <div class='container'>
+    <div class='uk-container uk-flex-wrap'>
       <% for (let item of items){ %>
-        <div class="item">
-          <h3><%=item.name%><span>$<%=item.price%></span></h3>
-          <img src="<%=item.image%>" alt="<%=item.name%>">
+        <div class='uk-card uk-card-default uk-card-hover uk-padding uk-margin-small uk-width-1-2'>
+          <a class='uk-card-title' href="/items/<%=item.id%>"><%=item.name%></a>
+          <p>$<%=item.price%></p>
+          <div uk-lightbox>
+            <a href="<%=item.image%>"><img class='uk-img' height='200px' width='200px' data-src="<%=item.image%>" alt="<%=item.name%>" uk-img></a>
+          </div>
           <p><%=item.description%></p>
           <% if(currentUser) {%>
-            <a href="items/<%=item.id%>/edit">Edit</a>
+            <a class='uk-align-center uk-button uk-button-primary' href="items/<%=item.id%>/edit">Edit</a>
             <form action='/items/<%=item.id%>?_method=DELETE' method='POST'>
-              <input type="submit" value="DELETE"/>
+              <input class='uk-align-center uk-button uk-button-danger' type="submit" value="DELETE"/>
             </form>
           <% } %>
         </div>
-
       <%}%>
     </div>
+    <footer>
+      <%- include ('../partials/footer.ejs') %>
+    </footer>
   </body>
 </html>

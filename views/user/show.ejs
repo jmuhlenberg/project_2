@@ -5,12 +5,26 @@
     <title>JohnsList - Show Page</title>
   </head>
   <header>
+    <div class="johnslist">
+      <h1>JohnsList</h1>
+    </div>
     <%- include ('../partials/header.ejs') %>
   </header>
   <body>
-    <h1>Show Page</h1>
-    <div class='container'>
-
+    <div class='uk-container'>
+      <div class="uk-card uk-card-default uk-padding">
+        <h1><%=item.name%></h1>
+        <h3>$<%=item.price%></h3>
+        <hr>
+        <div uk-lightbox>
+          <a href="<%=item.image%>"><img class='uk-img' height='' width='' data-src="<%=item.image%>" alt="<%=item.name%>" uk-img></a>
+        </div>
+        <hr>
+        <p><%=item.description%></p>
+      </div>
     </div>
+    <footer>
+      <%- include ('../partials/footer.ejs') %>
+    </footer>
   </body>
 </html>

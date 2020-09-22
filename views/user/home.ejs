@@ -17,7 +17,7 @@
     <% } %>
     <div class='uk-container uk-flex uk-flex-center uk-flex-wrap uk-flex-wrap-around uk-padding-small'>
       <% for (let item of items){ %>
-        <div class='uk-card uk-card-default uk-card-body uk-card-hover uk-padding uk-margin-small'>
+        <div class='uk-card uk-card-default uk-card-body uk-card-hover uk-padding uk-margin-small-right uk-margin-small-bottom'>
           <a class='uk-card-title' href="/items/<%=item.id%>"><%=item.name%></a>
           <p>$<%=item.price%></p>
           <div uk-lightbox>
